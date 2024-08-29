@@ -1,16 +1,14 @@
-/**
- * For a detailed explanation regarding each configuration property, visit:
- * https://jestjs.io/docs/configuration
- */
+// eslint-disable-next-line @typescript-eslint/no-var-requires
+const nextJest = require('next/jest');
 
-import type { Config } from 'jest';
+/** @type {import('jest').Config} */
+const createJestConfig = nextJest({
+  dir: './',
+});
 
-const config: Config = {
-  clearMocks: true,
-  collectCoverage: true,
-  coverageDirectory: 'coverage',
-  testEnvironment: 'jsdom',
+const config = {
   coverageProvider: 'v8',
+  testEnvironment: 'jsdom',
   preset: 'ts-jest',
   setupFilesAfterEnv: ['<rootDir>/jest.setup.ts'],
   testPathIgnorePatterns: ['<rootDir>/.next/', '<rootDir>/node_modules/'],
@@ -19,4 +17,4 @@ const config: Config = {
   },
 };
 
-export default config;
+module.exports = createJestConfig(config);

@@ -7,8 +7,8 @@ type Props = {
   stories: User[];
 };
 
-const Home = (props: Props) => {
-  return <StoryList stories={props.stories} />;
+const Home = ({ stories }: Props) => {
+  return <StoryList stories={stories} />;
 };
 
 export default Home;
