@@ -3,13 +3,18 @@ import { User } from '~/types/types';
 
 type Props = {
   story: User | null;
+  onClick: () => void;
 };
 
-const SingleStory = ({ story }: Props) => {
+const SingleStory = ({ story, onClick }: Props) => {
   if (!story) return null;
 
   return (
-    <button key={story.id} className='flex flex-col items-center'>
+    <button
+      key={story.id}
+      className='flex flex-col items-center'
+      onClick={onClick}
+    >
       <div className='w-[66px] h-[66px] rounded-full relative flex items-center justify-center bg-gradient-to-tr from-yellow-400 to-fuchsia-600 rounded-full'>
         <Image
           src={story.profile_image}
