@@ -2,7 +2,7 @@ const API_BASE_URL = process.env.API_BASE_URL;
 
 export const fetchStories = async () => {
   try {
-    const res = await fetch(`${API_BASE_URL}/api/story`);
+    const res = await fetch(`https://assign-stage-insta.vercel.app/api/story`);
 
     if (!res.ok) {
       // Throw an error if response is not OK
